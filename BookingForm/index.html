@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/blitzer/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".datepicker" ).datepicker();
+            $('form').submit(function(){
+                var userName=$('form').find('input[name=name]').val()
+                var outDate=$('form').find('input[name=outDate]').val()
+                var inDate=$('form').find('input[name=inDate]').val()
+                $(".error").remove();
+                if (userName.length < 1) {
+                    $('#name').after('<span class="error">This field is required</span>');
+                } else {
+                    alert("Hello "+ userName + " your trip is booked from " + outDate + " to "+ inDate);
+                }
+                return false;
+            })
+        });
+    </script>
+    <title>Booking Form</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h2>Welcome to Coding Dojo Book-a-Cruise</h2>
+        <form action="proces.php" method="post">
+            <label for="outDate">From: </label>
+            <input type="text" class="datepicker" name="outDate"><br>
+            <label for="inDate">To: </label>
+            <input type="text" class="datepicker" name="inDate"><br>
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name"><br>
+            <input type="submit" value="SUBMIT">
+        </form>
+    </div>
+   
+</body>
+</html>)
+
+
